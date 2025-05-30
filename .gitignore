@@ -1,0 +1,134 @@
+# Environment Variables
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+*.env
+
+# API Keys and Secrets
+config/secrets.py
+secrets.json
+credentials.json
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environment
+venv/
+env/
+ENV/
+.venv/
+.ENV/
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+database.db
+speech_to_text.db
+
+# Logs
+*.log
+logs/
+log/
+
+# Node.js (for frontend)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+
+# React Build
+frontend/build/
+frontend/dist/
+
+# Temporary Files
+*.tmp
+*.temp
+temp/
+tmp/
+
+# Audio Files (uploaded content)
+uploads/
+audio-files/
+*.mp3
+*.wav
+*.m4a
+*.aac
+*.ogg
+*.flac
+*.webm
+
+# OS Generated Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Coverage Reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# FastAPI
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Backup Files
+*.bak
+*.backup
+*~
+
+# Local Development
+local_settings.py
+settings_local.py
+
+# Docker
+.dockerignore
+Dockerfile.local 
