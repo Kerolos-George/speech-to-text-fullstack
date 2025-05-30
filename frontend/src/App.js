@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { 
   Container, 
   CssBaseline, 
@@ -7,10 +7,9 @@ import {
   Box,
   AppBar,
   Toolbar,
-  Typography,
-  IconButton
+  Typography
 } from '@mui/material';
-import { Mic, Notifications } from '@mui/icons-material';
+import { Mic } from '@mui/icons-material';
 import AudioUploader from './components/AudioUploader';
 import NotificationSystem from './components/NotificationSystem';
 import WebSocketProvider from './components/WebSocketProvider';

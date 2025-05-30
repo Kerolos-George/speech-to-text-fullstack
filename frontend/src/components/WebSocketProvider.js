@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState, useRef } from 'react';
+import React, { createContext, useEffect, useState, useRef, useCallback } from 'react';
 import { WS_BASE_URL } from '../config';
 
 export const WebSocketContext = createContext();
@@ -11,7 +11,7 @@ const WebSocketProvider = ({ children, onNotification }) => {
   const reconnectAttemptsRef = useRef(0);
   const maxReconnectAttempts = 5;
 
-  const connect = () => {
+  const connect = useCallback(() => {
     try {
       const ws = new WebSocket(`${WS_BASE_URL}/ws`);
       
@@ -69,7 +69,7 @@ const WebSocketProvider = ({ children, onNotification }) => {
       setConnectionStatus('Error');
       return null;
     }
-  };
+  }, [onNotification]);
 
   useEffect(() => {
     connect();
@@ -82,7 +82,7 @@ const WebSocketProvider = ({ children, onNotification }) => {
         socket.close(1000, 'Component unmounting');
       }
     };
-  }, []);
+  }, [connect]);
 
   const sendMessage = (message) => {
     if (socket && socket.readyState === WebSocket.OPEN) {
