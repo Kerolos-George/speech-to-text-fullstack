@@ -9,11 +9,13 @@ const WebSocketProvider = ({ children, onNotification }) => {
   const [connectionStatus, setConnectionStatus] = useState('Disconnected');
   const reconnectTimeoutRef = useRef(null);
   const reconnectAttemptsRef = useRef(0);
+  const socketRef = useRef(null);
   const maxReconnectAttempts = 5;
 
   const connect = useCallback(() => {
     try {
       const ws = new WebSocket(`${WS_BASE_URL}/ws`);
+      socketRef.current = ws;
       
       ws.onopen = () => {
         console.log('WebSocket connected');
@@ -45,6 +47,7 @@ const WebSocketProvider = ({ children, onNotification }) => {
         console.log('WebSocket disconnected:', event.code, event.reason);
         setConnectionStatus('Disconnected');
         setSocket(null);
+        socketRef.current = null;
         
         // Attempt to reconnect if not a manual close
         if (event.code !== 1000 && reconnectAttemptsRef.current < maxReconnectAttempts) {
@@ -78,8 +81,9 @@ const WebSocketProvider = ({ children, onNotification }) => {
       if (reconnectTimeoutRef.current) {
         clearTimeout(reconnectTimeoutRef.current);
       }
-      if (socket) {
-        socket.close(1000, 'Component unmounting');
+      if (socketRef.current) {
+        socketRef.current.close(1000, 'Component unmounting');
+        socketRef.current = null;
       }
     };
   }, [connect]);
