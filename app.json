@@ -1,0 +1,61 @@
+{
+  "name": "SpeechFlow AI",
+  "description": "A full-stack speech-to-text transcription platform with real-time processing, speaker diarization, and subtitle export",
+  "repository": "https://github.com/Kerolos-George/speech-to-text-fullstack",
+  "logo": "https://raw.githubusercontent.com/Kerolos-George/speech-to-text-fullstack/main/frontend/public/logo192.png",
+  "keywords": [
+    "speech-to-text",
+    "fastapi",
+    "react",
+    "assemblyai",
+    "supabase",
+    "websocket",
+    "transcription",
+    "speaker-diarization"
+  ],
+  "stack": "heroku-22",
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    },
+    {
+      "url": "heroku/nodejs"
+    }
+  ],
+  "env": {
+    "ASSEMBLY_API_KEY": {
+      "description": "Your AssemblyAI API key for speech transcription",
+      "required": true
+    },
+    "SUPABASE_URL": {
+      "description": "Your Supabase project URL",
+      "required": true
+    },
+    "SUPABASE_KEY": {
+      "description": "Your Supabase anonymous key",
+      "required": true
+    },
+    "SUPABASE_BUCKET_NAME": {
+      "description": "Supabase storage bucket name",
+      "value": "audio-files",
+      "required": false
+    },
+    "DEBUG": {
+      "description": "Enable debug mode",
+      "value": "False",
+      "required": false
+    },
+    "MAX_FILE_SIZE": {
+      "description": "Maximum file upload size in bytes",
+      "value": "104857600",
+      "required": false
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "basic"
+    }
+  },
+  "addons": []
+} 

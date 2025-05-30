@@ -70,6 +70,46 @@ npm start
 - **Backend API**: http://localhost:8000/docs
 - **Health Check**: http://localhost:8000/health
 
+## 🏃‍♂️ **Quick Local Development (Windows)**
+
+For Windows users, use the PowerShell script for easy setup:
+
+```powershell
+# Clone and setup in one go
+git clone https://github.com/Kerolos-George/speech-to-text-fullstack.git
+cd speech-to-text-fullstack
+
+# Run the setup script (automatically starts both servers)
+.\run-local.ps1
+```
+
+**Manual Windows Commands:**
+```powershell
+# Backend (Terminal 1)
+cd backend
+python setup_env.py
+pip install -r requirements.txt
+python fast_start.py
+
+# Frontend (Terminal 2) 
+cd frontend
+npm install
+npm start
+```
+
+## 🌐 **Cloud Deployment**
+
+### One-Click Deploy to Heroku
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Kerolos-George/speech-to-text-fullstack)
+
+### Other Platforms
+- **Railway**: Automatic deployment from GitHub
+- **Render**: Web service with GitHub integration
+- **DigitalOcean**: App Platform deployment
+- **Netlify/Vercel**: Frontend-only deployment
+
+📖 **[Complete Deployment Guide](DEPLOYMENT.md)**
+
 ## 📁 Project Structure
 
 ```
