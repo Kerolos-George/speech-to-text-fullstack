@@ -22,6 +22,7 @@ import {
   VolumeUp,
   Assessment
 } from '@mui/icons-material';
+import { API_BASE_URL } from '../config';
 
 const Analytics = () => {
   const [analytics, setAnalytics] = useState({
@@ -43,7 +44,7 @@ const Analytics = () => {
   const fetchAnalytics = async () => {
     try {
       setLoading(true);
-      const response = await fetch('http://localhost:8000/transcripts?limit=100');
+      const response = await fetch(`${API_BASE_URL}/transcripts?limit=100`);
       if (response.ok) {
         const transcripts = await response.json();
         calculateAnalytics(transcripts);

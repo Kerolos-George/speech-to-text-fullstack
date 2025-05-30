@@ -38,6 +38,7 @@ import {
   Download
 } from '@mui/icons-material';
 import { WebSocketContext } from './WebSocketProvider';
+import { API_BASE_URL } from '../config';
 
 const TranscriptsList = () => {
   const [transcripts, setTranscripts] = useState([]);
@@ -75,7 +76,7 @@ const TranscriptsList = () => {
         params.append('status', statusFilter);
       }
 
-      const response = await fetch(`http://localhost:8000/transcripts?${params}`);
+      const response = await fetch(`${API_BASE_URL}/transcripts?${params}`);
       if (response.ok) {
         const data = await response.json();
         setTranscripts(data);
@@ -91,7 +92,7 @@ const TranscriptsList = () => {
 
   const handleViewTranscript = async (transcriptId) => {
     try {
-      const response = await fetch(`http://localhost:8000/transcripts/${transcriptId}`);
+      const response = await fetch(`${API_BASE_URL}/transcripts/${transcriptId}`);
       if (response.ok) {
         const data = await response.json();
         setSelectedTranscript(data);
@@ -105,7 +106,7 @@ const TranscriptsList = () => {
   const handleDeleteTranscript = async (transcriptId) => {
     if (window.confirm('Are you sure you want to delete this transcript?')) {
       try {
-        const response = await fetch(`http://localhost:8000/transcripts/${transcriptId}`, {
+        const response = await fetch(`${API_BASE_URL}/transcripts/${transcriptId}`, {
           method: 'DELETE'
         });
         if (response.ok) {

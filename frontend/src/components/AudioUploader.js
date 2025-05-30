@@ -37,6 +37,7 @@ import {
   Subtitles
 } from '@mui/icons-material';
 import { WebSocketContext } from './WebSocketProvider';
+import { API_BASE_URL } from '../config';
 
 const AudioUploader = () => {
   const [file, setFile] = useState(null);
@@ -222,7 +223,7 @@ const AudioUploader = () => {
 
   const downloadSubtitle = async (format, transcriptId) => {
     try {
-      const response = await fetch(`http://localhost:8000/api/transcripts/${transcriptId}/${format}`);
+      const response = await fetch(`${API_BASE_URL}/api/transcripts/${transcriptId}/${format}`);
       if (!response.ok) {
         throw new Error(`Failed to download ${format.toUpperCase()} file`);
       }

@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useEffect, useState, useRef } from 'react';
+import { WS_BASE_URL } from '../config';
 
 export const WebSocketContext = createContext();
 
@@ -12,7 +13,7 @@ const WebSocketProvider = ({ children, onNotification }) => {
 
   const connect = () => {
     try {
-      const ws = new WebSocket('ws://localhost:8000/ws');
+      const ws = new WebSocket(`${WS_BASE_URL}/ws`);
       
       ws.onopen = () => {
         console.log('WebSocket connected');
